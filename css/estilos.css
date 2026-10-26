@@ -1,0 +1,233 @@
+/* ============================================================
+   estilos.css — Documento de Validación de Certificado
+   Paleta: azul marino institucional + dorado (elegante)
+   ============================================================ */
+:root {
+  --azul-oscuro: #0a2540;
+  --azul-medio: #123c69;
+  --azul-claro: #1e5a9e;
+  --dorado: #c9a227;
+  --dorado-claro: #e6c75e;
+  --fondo: #f5f1e8;
+  --papel: #fffdf7;
+  --texto: #1a1a2e;
+  --texto-secundario: #555;
+  --borde: #d4c9a8;
+  --valido: #1a7f37;
+  --invalido: #c0392b;
+  --sombra: 0 4px 20px rgba(10,37,64,0.12);
+  --radio: 10px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.7;
+  padding-bottom: 40px;
+}
+
+/* ---------- Cabecera oficial ---------- */
+.cabecera {
+  background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+  color: #fff;
+  padding: 24px 20px;
+  border-bottom: 4px solid var(--dorado);
+  box-shadow: var(--sombra);
+}
+.contenedor-cabecera {
+  max-width: 900px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px;
+}
+.escudo { width: 80px; height: 80px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,.3)); }
+.titulos-instituto { flex: 1; }
+.titulos-instituto h1 {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 700; letter-spacing: 1px; line-height: 1.2;
+  font-family: 'Times New Roman', serif;
+}
+.subtitulo-instituto { color: var(--dorado-claro); font-style: italic; font-size: 0.85em; }
+.lema { font-size: 0.8rem; color: #b8c7d9; font-style: italic; margin-top: 4px; }
+.lado-derecho { text-align: right; }
+.etiqueta-doc { font-size: 0.65rem; letter-spacing: 3px; color: var(--dorado-claro); font-weight: 700; }
+.codigo-doc { font-family: 'Courier New', monospace; font-size: 0.95rem; color: #fff; margin-top: 4px; letter-spacing: 1px; }
+
+/* ---------- Barra de validez ---------- */
+.barra-validez {
+  max-width: 900px; margin: 20px auto 0; padding: 12px 20px;
+  background: #fff; border-radius: var(--radio); box-shadow: var(--sombra);
+  display: flex; align-items: center; gap: 12px;
+  border-left: 5px solid var(--dorado);
+  font-weight: 600; font-size: 0.95rem;
+}
+.indicador {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #999; flex-shrink: 0;
+  animation: latido 1.5s infinite;
+}
+.indicador.valido { background: var(--valido); animation: none; box-shadow: 0 0 8px rgba(26,127,55,.6); }
+.indicador.invalido { background: var(--invalido); animation: none; }
+@keyframes latido { 50% { opacity: 0.4; } }
+
+/* ---------- Contenido / papel ---------- */
+.contenido {
+  max-width: 900px; margin: 24px auto; padding: 0 16px;
+}
+.seccion {
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 32px 36px;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);
+  position: relative;
+}
+.titulo-seccion {
+  text-align: center; color: var(--azul-oscuro);
+  font-size: 1.5rem; font-weight: 700; letter-spacing: 2px;
+  margin-bottom: 20px; font-family: 'Times New Roman', serif;
+}
+.subtitulo-seccion {
+  color: var(--azul-medio); font-size: 1.15rem; font-weight: 700;
+  text-align: center; margin-bottom: 16px; letter-spacing: 1px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--dorado);
+  display: inline-block; position: relative; left: 50%; transform: translateX(-50%);
+}
+.intro { text-align: center; color: var(--texto-secundario); font-size: 1.05rem; margin: 8px 0; }
+.nombre-alumno {
+  text-align: center; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700;
+  color: var(--azul-oscuro); margin: 16px 0; padding: 12px;
+  border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde);
+  letter-spacing: 1px; font-family: 'Times New Roman', serif;
+}
+
+/* ---------- Fila de datos ---------- */
+.fila-datos {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px; margin-top: 24px;
+}
+.dato {
+  background: var(--fondo); border: 1px solid var(--borde);
+  border-radius: 8px; padding: 14px; text-align: center;
+}
+.dato .etiqueta { display: block; font-size: 0.7rem; letter-spacing: 2px; color: var(--texto-secundario); text-transform: uppercase; }
+.dato .valor { display: block; font-size: 1.3rem; font-weight: 700; color: var(--azul-oscuro); margin-top: 4px; }
+.dato .valor.valido { color: var(--valido); }
+
+/* ---------- Competencias ---------- */
+.lista-competencias {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px; margin-top: 16px;
+}
+.competencia {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--fondo); border: 1px solid var(--borde);
+  border-radius: 8px; padding: 16px; transition: 0.25s;
+}
+.competencia:hover { border-color: var(--dorado); transform: translateY(-3px); box-shadow: var(--sombra); }
+.competencia .icono { font-size: 1.8rem; flex-shrink: 0; }
+.competencia strong { color: var(--azul-oscuro); display: block; font-size: 1rem; }
+.competencia p { font-size: 0.82rem; color: var(--texto-secundario); margin-top: 2px; }
+
+/* ---------- Diploma ---------- */
+.ayuda-diploma { text-align: center; color: var(--texto-secundario); font-size: 0.88rem; margin-bottom: 18px; }
+.ayuda-diploma code, .detalle-placeholder code {
+  background: rgba(201,162,39,0.15); color: var(--azul-oscuro);
+  padding: 2px 6px; border-radius: 4px; font-size: 0.85em;
+}
+.marco-diploma {
+  position: relative; border: 8px double var(--dorado);
+  border-radius: 6px; padding: 12px; background: #fff;
+  min-height: 300px; display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+#img-diploma { max-width: 100%; max-height: 600px; display: block; border-radius: 4px; animation: aparecer 0.6s ease; }
+@keyframes aparecer { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+.placeholder-diploma {
+  text-align: center; padding: 40px 20px; color: var(--texto-secundario);
+}
+.sello-icono { font-size: 3.5rem; margin-bottom: 12px; }
+.placeholder-diploma p { margin: 6px 0; }
+.detalle-placeholder { font-size: 0.85rem; margin: 12px 0 !important; }
+
+/* Sello digital superpuesto */
+.sello-digital {
+  position: absolute; top: 20px; right: 20px; width: 110px; height: 110px;
+  border: 3px solid var(--valido); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transform: rotate(-15deg); opacity: 0; transition: opacity 0.8s 0.5s;
+  pointer-events: none;
+}
+.sello-digital.visible { opacity: 0.85; }
+.sello-texto {
+  text-align: center; color: var(--valido); font-weight: 800;
+  font-size: 0.7rem; letter-spacing: 1px; line-height: 1.5;
+  text-transform: uppercase;
+}
+.sello-fecha { display: block; font-size: 0.6rem; font-weight: 600; }
+
+/* ---------- Verificación ---------- */
+.ayuda-verificacion { text-align: center; color: var(--texto-secundario); font-size: 0.9rem; margin-bottom: 16px; }
+.fila-verificacion { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.input-codigo {
+  padding: 12px 18px; border: 2px solid var(--borde); border-radius: 8px;
+  font-family: 'Courier New', monospace; font-size: 1rem; text-transform: uppercase;
+  letter-spacing: 1px; width: 260px; text-align: center; transition: 0.2s;
+}
+.input-codigo:focus { outline: none; border-color: var(--azul-claro); box-shadow: 0 0 0 3px rgba(30,90,158,0.15); }
+.resultado-verificacion { text-align: center; margin-top: 16px; font-weight: 600; min-height: 24px; }
+.resultado-verificacion.exito { color: var(--valido); }
+.resultado-verificacion.error { color: var(--invalido); }
+
+/* ---------- Botones ---------- */
+.btn-primario {
+  background: linear-gradient(135deg, var(--azul-medio), var(--azul-oscuro));
+  color: #fff; border: none; padding: 12px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: 0.2s;
+  font-family: inherit; letter-spacing: 0.5px;
+}
+.btn-primario:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(10,37,64,0.3); }
+.btn-secundario {
+  background: transparent; color: var(--azul-medio); border: 2px solid var(--azul-medio);
+  padding: 10px 22px; border-radius: 8px; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; transition: 0.2s; font-family: inherit; margin-top: 12px;
+}
+.btn-secundario:hover { background: var(--azul-medio); color: #fff; }
+
+/* ---------- Firmas ---------- */
+.fila-firmas { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.firma { text-align: center; width: 220px; }
+.linea-firma { border-top: 1.5px solid var(--texto); margin-bottom: 8px; height: 50px; }
+.firma p { font-size: 0.9rem; color: var(--texto); }
+.cargo-firma { font-size: 0.75rem !important; color: var(--texto-secundario) !important; }
+.fecha-expedicion { text-align: center; color: var(--texto-secundario); font-size: 0.88rem; font-style: italic; }
+
+/* ---------- Acciones ---------- */
+.acciones { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+
+/* ---------- Pie ---------- */
+.pie { text-align: center; padding: 24px 16px; color: var(--texto-secundario); font-size: 0.82rem; }
+.pie-menor { font-size: 0.75rem; margin-top: 4px; opacity: 0.8; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  .contenedor-cabecera { flex-wrap: wrap; justify-content: center; text-align: center; }
+  .lado-derecho { text-align: center; width: 100%; }
+  .seccion { padding: 22px 18px; }
+  .fila-firmas { gap: 20px; }
+  .firma { width: 100%; }
+  .sello-digital { width: 80px; height: 80px; top: 10px; right: 10px; }
+  .sello-texto { font-size: 0.5rem; }
+}
+
+/* ---------- Impresión ---------- */
+@media print {
+  body { background: #fff; }
+  .cabecera { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .acciones, .verificacion, .barra-validez, .ayuda-diploma, .btn-secundario { display: none !important; }
+  .seccion { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .sello-digital { opacity: 0.85; }
+}
