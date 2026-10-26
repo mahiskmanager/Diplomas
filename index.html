@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validación de Certificado — Instituto de Ciencia y Computación</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- ============ CABECERA OFICIAL ============ -->
+<header class="cabecera">
+  <div class="contenedor-cabecera">
+    <div class="logo-instituto">
+      <!-- Escudo del instituto (SVG) -->
+      <svg viewBox="0 0 100 100" class="escudo" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="#0a2540" stroke="#c9a227" stroke-width="3"/>
+        <path d="M50 18 L78 35 L78 60 L50 82 L22 60 L22 35 Z" fill="#123c69" stroke="#c9a227" stroke-width="1.5"/>
+        <text x="50" y="52" text-anchor="middle" fill="#c9a227" font-size="22" font-weight="bold" font-family="serif">ICCP</text>
+      </svg>
+    </div>
+    <div class="titulos-instituto">
+      <h1>Instituto de Ciencia y Computación<br><span class="subtitulo-instituto">en Programación</span></h1>
+      <p class="lema">«Saber es poder — Programar es crear»</p>
+    </div>
+    <div class="lado-derecho">
+      <p class="etiqueta-doc">DOCUMENTO DE<br>VALIDACIÓN</p>
+      <p class="codigo-doc" id="codigo-doc">ICCP-2024-00872</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MENSAJE DE VALIDEZ ============ -->
+<div class="barra-validez" id="barra-validez">
+  <span class="indicador" id="indicador-validez"></span>
+  <span id="texto-validez">Verificando autenticidad del certificado…</span>
+</div>
+
+<main class="contenido">
+
+  <!-- ============ DATOS DEL CERTIFICADO ============ -->
+  <section class="seccion datos-certificado">
+    <h2 class="titulo-seccion">— Certificado de Reconocimiento —</h2>
+    <p class="intro">
+      Por este medio <strong>hago constar</strong> que el alumno
+    </p>
+    <p class="nombre-alumno" id="nombre-alumno">Douglas Ismael Esteban Esquivel</p>
+    <p class="intro">
+      ha aprobado satisfactoriamente todas las evaluaciones del programa de formación,
+      extendiéndose el presente certificado que avala su formación profesional.
+    </p>
+
+    <div class="fila-datos">
+      <div class="dato">
+        <span class="etiqueta">Año de inicio</span>
+        <span class="valor">2021</span>
+      </div>
+      <div class="dato">
+        <span class="etiqueta">Año de culminación</span>
+        <span class="valor">2024</span>
+      </div>
+      <div class="dato">
+        <span class="etiqueta">Duración</span>
+        <span class="valor">3 años</span>
+      </div>
+      <div class="dato">
+        <span class="etiqueta">Estatus</span>
+        <span class="valor valido">✓ Válido</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPETENCIAS ============ -->
+  <section class="seccion competencias">
+    <h3 class="subtitulo-seccion">Competencias adquiridas</h3>
+    <div class="lista-competencias">
+      <div class="competencia"><span class="icono">🌐</span><div><strong>HTML</strong><p>Estructura y semántica web</p></div></div>
+      <div class="competencia"><span class="icono">🎨</span><div><strong>CSS</strong><p>Diseño, estilos y responsive</p></div></div>
+      <div class="competencia"><span class="icono">⚡</span><div><strong>JavaScript</strong><p>Lógica, interactividad y DOM</p></div></div>
+      <div class="competencia"><span class="icono">🤖</span><div><strong>Manejo en IA</strong><p>Herramientas y aplicaciones de Inteligencia Artificial</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ DIPLOMA (cargado desde /fotos) ============ -->
+  <section class="seccion diploma-seccion">
+    <h3 class="subtitulo-seccion">Diploma extendido</h3>
+    <div class="marco-diploma" id="marco-diploma">
+      <img id="img-diploma" alt="Diploma extendido" style="display:none">
+      <!-- Placeholder si no hay diploma -->
+      <div class="placeholder-diploma" id="placeholder-diploma">
+        <div class="sello-icono">🎓</div>
+        <p><strong>Espacio reservado para el diploma</strong></p>
+        <p class="detalle-placeholder">
+          Coloca tu diploma en la carpeta <code>fotos/diploma.jpg</code><br>
+          y aparecerá aquí automáticamente.
+        </p>
+        <button class="btn-secundario" id="btn-subir-diploma">📤 Subir diploma (vista previa)</button>
+        <input type="file" id="input-diploma" accept="image/*" hidden>
+      </div>
+      <!-- Sello digital superpuesto -->
+      <div class="sello-digital" id="sello-digital">
+        <div class="sello-texto">
+          <span>CERTIFICADO</span>
+          <span class="sello-fecha" id="sello-fecha"></span>
+          <span>VÁLIDO </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERIFICACIÓN DE CÓDIGO ============ -->
+  <section class="seccion verificacion">
+    <h3 class="subtitulo-seccion">Verificación de autenticidad</h3>
+    <p class="ayuda-verificacion">Introduce el código de certificado para validarlo contra los registros del instituto.</p>
+    <div class="fila-verificacion">
+      <input type="text" id="input-codigo" class="input-codigo" placeholder="Ej: ICCP-2024-00872" maxlength="20">
+      <button class="btn-primario" id="btn-verificar">🔍 Verificar</button>
+    </div>
+    <div class="resultado-verificacion" id="resultado-verificacion"></div>
+  </section>
+
+  <!-- ============ FIRMAS ============ -->
+  <section class="seccion firmas">
+    <div class="fila-firmas">
+      <div class="firma">
+        <div class="linea-firma"></div>
+        <p><strong>Director del Instituto</strong></p>
+        <p class="cargo-firma">Instituto de Ciencia y Computación en Programación</p>
+      </div>
+      <div class="firma">
+        <div class="linea-firma"></div>
+        <p><strong>Coordinador Académico</strong></p>
+        <p class="cargo-firma">Área de Programación y Tecnologías</p>
+      </div>
+    </div>
+    <p class="fecha-expedicion">Expedido en Guatemala, Centroamérica — <span id="fecha-actual"></span></p>
+  </section>
+
+  <!-- ============ ACCIONES ============ -->
+  <div class="acciones">
+    <button class="btn-primario" id="btn-imprimir">🖨️ Imprimir / Guardar PDF</button>
+    <button class="btn-secundario" id="btn-compartir">🔗 Copiar enlace de validación</button>
+  </div>
+
+</main>
+
+<footer class="pie">
+  <p>© <span id="anio"></span> Instituto de Ciencia y Computación en Programación — Documento de validación oficial</p>
+  <p class="pie-menor">Este documento puede ser verificado en cualquier momento mediante el código de certificado.</p>
+</footer>
+
+<script src="js/validacion.js"></script>
+</body>
+</html>
